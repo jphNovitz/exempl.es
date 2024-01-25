@@ -1,0 +1,28 @@
+title:
+  register: "Inscription"
+  login: "Connexion"
+  action: "Action"
+  actions: "Actions"
+  site:
+    list: "Liste des sites"
+    title: "Titre"
+    description: "Description"
+    image: "Image"
+    repo: "Repo"
+    repository: "Repository"
+text:
+  no_record: "Aucun enregistrement trouvé"
+button:
+  login: "Connexion"
+  logout: "Déconnexion"
+  register: "Je m'enregistre"
+  create: "Nouveau"
+form:
+  agree: "J'accepte les Conditions"
+  password: "Mot de passe"
+  email: "Email"
+  title: "Titre"
+  description: "Description"
+  image: "Image"
+  repo: "Repo"
+  repository: "Repository"
