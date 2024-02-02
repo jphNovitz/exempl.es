@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% trans %}title.site.list{% endtrans %}{% endblock %}
+
+{% block body %}
+    <h1>{% trans %}title.site.list{% endtrans %}</h1>
+
+    <table class="w-full table-flex">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>{% trans %}title.site.title{% endtrans %}</th>
+            <th>{% trans %}title.site.description{% endtrans %}</th>
+            <th>{% trans %}title.site.image{% endtrans %}</th>
+            <th>{% trans %}title.site.repo{% endtrans %}</th>
+            <th>{% trans %}title.actions{% endtrans %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for site in sites %}
+            <tr>
+                <td>{{ site.id }}</td>
+                <td>{{ site.title }}</td>
+                <td>{{ site.description }}</td>
+                <td>{{ site.image }}</td>
+                <td>{{ site.repo }}</td>
+                <td>
+                    <a href="{{ path('app_admin_site_show', {'id': site.id}) }}">show</a>
+                    <a href="{{ path('app_admin_site_edit', {'id': site.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6"  class="py-4 bg-gray-50"> {% trans %}text.no_record{% endtrans %} </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="my-8">
+        <a href="{{ path('app_admin_site_new') }}"
+           class="bg-blue-800 text-blue-50 py-2 px-4">{% trans %}button.create{% endtrans %}</a>
+    </div>
+{% endblock %}
