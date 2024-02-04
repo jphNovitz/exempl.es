@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Site{% endblock %}
+
+{% block body %}
+    <div class="mx-auto my-16 w-full md:max-w-96 lg:max-w-[640px]  p-4 lg:p-16 border border-blue-900">
+        <h1>Create new Site</h1>
+
+        {{ include('admin/site/_form.html.twig') }}
+
+        <a href="{{ path('app_admin_site_index') }}">back to list</a>
+    </div>
+{% endblock %}
