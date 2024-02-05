@@ -1,0 +1,7 @@
+App\Entity\Site:
+    site_{1..3}:
+        title: <word()>
+        description: <sentence()>
+        repo: <url()>
+        categories: [ '@category*' ]
+        tags: [ '@tag*' ]
