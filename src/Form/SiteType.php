@@ -45,7 +45,7 @@ class SiteType extends AbstractType
             ->add('tags', EntityType::class, [
                 'required' => false,
                 'class' => Tag::class,
-                'choice_label' => 'translations.name',
+                'choice_label' => 'name',
                 'expanded' => true,
                 'multiple' => true,
             ]);
