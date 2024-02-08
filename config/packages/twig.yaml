@@ -1,5 +1,10 @@
 twig:
     file_name_pattern: '*.twig'
+    form_themes: [ 'tailwind_2_layout.html.twig' ]
+#    ,'Form/vich_fields.html.twig'
+    globals:
+            categories: '@App\Dto\Categories'
+
 
 when@test:
     twig:
