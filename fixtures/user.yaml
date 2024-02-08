@@ -1,6 +1,6 @@
 App\Entity\User:
-  user_(1..2):
-    email: <email()>
-    roles: ['admin']
-    password: <password()>
-    is_verified: true
+    user_(1..2):
+        email: <email()>
+        roles: ['admin']
+        password: <password()>
+        is_verified: true

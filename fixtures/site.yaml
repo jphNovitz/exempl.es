@@ -1,7 +1,8 @@
 App\Entity\Site:
-    site_{1..3}:
+    site_{1..25}:
         title: <word()>
         description: <sentence()>
+        image: "https://picsum.photos/500"
         repo: <url()>
-        categories: [ '@category*' ]
-        tags: [ '@tag*' ]
+        categories: [ '@category*', ]
+        tags: [ '@tag*', '@tag*', '@tag*', '@tag*', '@tag*', '@tag*'  ]
