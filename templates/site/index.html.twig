@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SiteController!{% endblock %}
+
+{% block body %}
+{#    {{ dump(categories.getAll()) }}#}
+    <div class="w-full grid md:grid-cols-3  gap-8">
+    {% for category in  categories.getAll() %}
+
+            <twig:Cards:Category :name="category.name"/>
+            {% for site in category.sites %}
+                <div>
+                    <twig:Cards:Site :site="site" :category="category.name"/>
+
+                </div>
+            {% else %}
+                no sites
+            {% endfor %}
+{#        </div>#}
+    {% endfor %}
+    </div>
+{% endblock %}
