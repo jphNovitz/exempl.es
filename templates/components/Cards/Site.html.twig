@@ -1,0 +1,25 @@
+<article>
+    <div style="background-image: url('{{ site.image }}')"
+         class="w-full aspect-video bg-no-repeat bg-center bg-cover p-4 border-4 rounded-xl border-dark dark:border-clear relative">
+        {% if site.repo is not empty %}
+            <div class="absolute bottom-4 right-4 bg-clear w-9 p-1 rounded-md">
+                <a href="{{ site.repo }}">
+                    <img src="{{ asset('images/logos/github-mark.png') }}"
+                         alt="Repository de {{ site.title }} sur Github | Laissez une étoilé "
+                         title="Repository de {{ site.title }} sur Github | Laissez une étoilé ">
+                </a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="p-2">
+        <h2 class="font-black  text-secondary"><a href="" title="{{ site.title }} |  {{ category }}">{{ site.title }}</a></h2>
+        <p class="font-[14px]">{{ site.description }}</p>
+        <h6 class="pt-2">
+            {% for tag in site.tags %}
+                #{{ tag.name }}
+            {% endfor %}
+        </h6>
+
+    </div>
+
+</article>
