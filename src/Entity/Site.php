@@ -6,6 +6,7 @@ use App\Repository\SiteRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation\Slug;
 
 #[ORM\Entity(repositoryClass: SiteRepository::class)]
 class Site
@@ -32,6 +33,10 @@ class Site
 
     #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'sites')]
     private Collection $tags;
+
+    #[Slug(fields: ['title'])]
+    #[ORM\Column(length: 125, unique: true)]
+    private ?string $slug = null;
 
     public function __construct()
     {
@@ -136,6 +141,18 @@ class Site
     public function removeTag(Tag $tag): static
     {
         $this->tags->removeElement($tag);
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }
