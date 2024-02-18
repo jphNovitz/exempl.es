@@ -9,7 +9,7 @@ class DefaultControllerTest extends WebTestCase
     public function test_default_public_controller(): void
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/');
+        $crawler = $client->request('GET', '/default');
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Hello');

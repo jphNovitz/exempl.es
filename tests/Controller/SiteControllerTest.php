@@ -20,7 +20,7 @@ class SiteControllerTest extends WebTestCase
     private CategoryRepository $categoryRepository;
     private TagRepository $tagRepository;
     private SiteRepository $siteRepository;
-    private string $path = '/admin/site/';
+    private string $path = '/';
 
     protected function setUp(): void
     {
@@ -30,4 +30,22 @@ class SiteControllerTest extends WebTestCase
         $this->databaseTool = static::getContainer()->get(DatabaseToolCollection::class)->get();
         $this->siteRepository = $this->manager->getRepository(Site::class);
     }
+
+    public function test_site_index_page_is_accessible(): void
+    {
+        $this->databaseTool->loadAliceFixture([
+            'fixtures/test/tag.yaml',
+            'fixtures/test/category.yaml',
+            'fixtures/test/site.yaml'
+        ]);
+
+        $sites = $this->siteRepository->findAll();
+
+        $this->client->request('GET', $this->path);
+
+        $this->assertResponseIsSuccessful();
+        $this->assertResponseStatusCodeSame(200);
+//        $this->assertSelectorTextContains("H1", "Liste des sites");
+    }
+
 }

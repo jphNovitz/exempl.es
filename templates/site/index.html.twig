@@ -3,10 +3,17 @@
 {% block title %}Hello SiteController!{% endblock %}
 
 {% block body %}
-{#    {{ dump(categories.getAll()) }}#}
-    <div class="w-full grid md:grid-cols-3  gap-8">
-    {% for category in  categories.getAll() %}
-
+    <div class="w-full grid md:grid-cols-3  gap-8 my-8">
+        <twig:Cards:Info class="col-span-2 p-0">
+            <img src="{{ asset('images/dalle_exemples_01') }}" class="rounded-lg" alt="">
+        </twig:Cards:Info>
+        <twig:Cards:Info class="font-black">
+            <h1>Voici quelques réalisations</h1>
+            <p>Anciens travaux d'écoles, essais, POC ou demos.  N'hésitez pas à visiter mon <a href="https://github.com/jphNovitz" title="https://github.com/jphNovitz">Github</a></p>
+        </twig:Cards:Info>
+    </div>
+    <div class="w-full grid md:grid-cols-3  gap-8 ">
+        {% for category in  categories.getAll() %}
             <twig:Cards:Category :name="category.name"/>
             {% for site in category.sites %}
                 <div>
@@ -16,7 +23,7 @@
             {% else %}
                 no sites
             {% endfor %}
-{#        </div>#}
-    {% endfor %}
+            {#        </div> #}
+        {% endfor %}
     </div>
 {% endblock %}
