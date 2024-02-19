@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="w-full grid md:grid-cols-3  gap-8 my-8">
+        <twig:Cards:Info class="col-span-2 p-0">
+            <img src="{{ asset('images/dalle_exemples_01') }}" class="rounded-lg" alt="">
+        </twig:Cards:Info>
+        <twig:Cards:Info class="font-black">
+            <h1>{{ site.title }}</h1>
+        </twig:Cards:Info>
+    </div>
+
+    <twig:Cards:Info class="font-black">
+        <p>{{ site.description }}</p>
+    </twig:Cards:Info>
+
+
+    <div class="w-full grid md:grid-cols-3  gap-8 my-8">
+        <twig:Cards:Info class="p-0">
+            Voir:
+            <br />Github
+        </twig:Cards:Info>
+        <twig:Cards:Info class="font-black">
+            {{ site.categories[0].name }}
+        </twig:Cards:Info>
+        <twig:Cards:Info class="font-black">
+            {% for tag in site.tags %}
+                #{{ tag.name }},
+            {% endfor %}
+        </twig:Cards:Info>
+    </div>
+
+
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
