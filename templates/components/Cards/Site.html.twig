@@ -12,7 +12,9 @@
         {% endif %}
     </div>
     <div class="p-2">
-        <h2 class="font-black  text-secondary"><a href="" title="{{ site.title }} |  {{ category }}">{{ site.title }}</a></h2>
+        <h2 class="font-black  text-secondary">
+            <a href="{{ path('app_site_show', {'slug': site.slug}) }}" title="{{ site.title }} |  {{ category }}">{{ site.title }}</a>
+        </h2>
         <p class="font-[14px]">{{ site.description }}</p>
         <h6 class="pt-2">
             {% for tag in site.tags %}
