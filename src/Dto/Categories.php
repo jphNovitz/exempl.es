@@ -2,29 +2,20 @@
 
 namespace App\Dto;
 
-
-use App\Entity\Category;
 use App\Repository\CategoryRepository;
 
 class Categories
 {
-    public $categories;
+    public array $categories;
 
-    public function __construct(private CategoryRepository $repository)
+    public function __construct(private readonly CategoryRepository $repository)
     {
         if (!empty($all = $this->repository->findAllWithSites())) $this->categories = $all;
         else $this->categories = [];
     }
 
-    public function getAll(){
+    public function getAll(): array
+    {
         return $this->categories;
     }
-//    public function getSites(){
-//        if(!empty($this->categories)){
-//            return $this->
-//        }
-//    }
-
-
-
 }
