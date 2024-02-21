@@ -9,11 +9,13 @@
         </twig:Cards:Info>
         <twig:Cards:Info class="font-black">
             <h1>Voici quelques réalisations</h1>
-            <p>Anciens travaux d'écoles, essais, POC ou demos.  N'hésitez pas à visiter mon <a href="https://github.com/jphNovitz" title="https://github.com/jphNovitz">Github</a></p>
+            <p>Anciens travaux d'écoles, essais, POC ou demos. N'hésitez pas à visiter mon <a
+                        href="https://github.com/jphNovitz" title="https://github.com/jphNovitz">Github</a></p>
         </twig:Cards:Info>
     </div>
-    <div class="w-full grid md:grid-cols-3 gap-8 my-32 md:my-12 ">
-        {% for category in  categories.getAll() %}
+
+    {% for category in  categories.getAll() %}
+        <div class="w-full grid md:grid-cols-3 gap-20 lg:gap-8 my-[20vh] ">
             <twig:Cards:Category :name="category.name"/>
             {% for site in category.sites %}
                 <div>
@@ -23,7 +25,7 @@
             {% else %}
                 no sites
             {% endfor %}
-            {#        </div> #}
-        {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
+    {#    </div> #}
 {% endblock %}
