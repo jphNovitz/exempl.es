@@ -12,6 +12,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class SiteType extends AbstractType
 {
@@ -26,7 +27,7 @@ class SiteType extends AbstractType
                 'label' => 'form.description',
                 'translation_domain' => 'messages'
             ])
-            ->add('image')
+            ->add('imageFile', VichImageType::class)
             ->add('repo', TextType::class, [
                 'label' => 'form.repository',
                 'translation_domain' => 'messages'
