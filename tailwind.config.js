@@ -9,12 +9,12 @@ module.exports = {
         colors: {
             transparent: 'transparent',
             current: 'currentColor',
-            'clear': '#C7F9CC',
-            'clearDarken': '#FFC300',
-            'dark': '#22577A',
-            'primary': '#57CC99',
-            'secondary': '#38A3A5',
-            'black': '#091920',
+            'white': '#EDF2F4',
+            'clear': '#B7C5DE',
+            // 'clear': '#9ca8c0',
+            'dark': '#2B2D42',
+            'primary': '#0066FF',
+            'black': '#0E0F17',
         },
         extend: {},
     },
@@ -41,6 +41,25 @@ module.exports = {
                 },
                 'h6': {
                     fontSize: theme('fontSize.xs'),
+                },
+                'a': {
+                    color: theme('colors.primary'),
+                    fontWeight: theme('fontWeight.bold'),
+                    textDecoration: theme('textDecoration.underline'),
+                },
+                '.dark': {
+                    'a': {
+                        color: theme('colors.dark'),
+                        fontWeight: theme('fontWeight.bold'),
+                        textDecoration: theme('textDecoration.underline'),
+                    },
+                },
+                '@media (prefers-color-scheme: dark)': {
+                    'a':{
+                        color: theme('colors.dark'),
+                        fontWeight: theme('fontWeight.bold'),
+                        textDecoration: theme('textDecoration.underline'),
+                    }
                 },
             })
         })],
