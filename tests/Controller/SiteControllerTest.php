@@ -47,5 +47,21 @@ class SiteControllerTest extends WebTestCase
         $this->assertResponseStatusCodeSame(200);
 //        $this->assertSelectorTextContains("H1", "Liste des sites");
     }
+    public function test_site_show_page(): void
+    {
+        $this->databaseTool->loadAliceFixture([
+            'fixtures/test/tag.yaml',
+            'fixtures/test/category.yaml',
+            'fixtures/test/site.yaml'
+        ]);
+
+        $site = $this->siteRepository->findAll()[0];
+
+        $crawler = $this->client->request('GET', sprintf('%s%s%s', $this->path, 'site/',  $site->getSlug()));
+
+        $this->assertResponseIsSuccessful();
+        $this->assertResponseStatusCodeSame(200);
+        $this->assertStringContainsStringIgnoringCase($site->getTitle(), $crawler->text());
+    }
 
 }
