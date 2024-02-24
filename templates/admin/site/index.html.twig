@@ -10,9 +10,9 @@
         <tr>
             <th>Id</th>
             <th>{% trans %}title.site.title{% endtrans %}</th>
-            <th>{% trans %}title.site.description{% endtrans %}</th>
-            <th>{% trans %}title.site.image{% endtrans %}</th>
-            <th>{% trans %}title.site.repo{% endtrans %}</th>
+            <th class="hidden lg:table-cell">{% trans %}title.site.description{% endtrans %}</th>
+            <th class="hidden lg:table-cell">{% trans %}title.site.image{% endtrans %}</th>
+            <th class="hidden lg:table-cell">{% trans %}title.site.repo{% endtrans %}</th>
             <th>{% trans %}title.actions{% endtrans %}</th>
         </tr>
         </thead>
@@ -21,10 +21,10 @@
             <tr>
                 <td>{{ site.id }}</td>
                 <td>{{ site.title }}</td>
-                <td>{{ site.description }}</td>
-                <td>{{ site.image }}</td>
-                <td>{{ site.repo }}</td>
-                <td>
+                <td class="hidden lg:table-cell">{{ site.description }}</td>
+                <td class="hidden lg:table-cell"><img src="{{ asset('images/sites/'~site.imageName) }}"  class="w-12 h-12" alt=""></td>
+                <td class="hidden lg:table-cell">{{ site.repo }}</td>
+                <td class="text-center">
                     <a href="{{ path('app_admin_site_show', {'id': site.id}) }}">show</a>
                     <a href="{{ path('app_admin_site_edit', {'id': site.id}) }}">edit</a>
                 </td>
