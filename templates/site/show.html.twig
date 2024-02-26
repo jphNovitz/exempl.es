@@ -3,7 +3,7 @@
 {% block body %}
 
     <div class="w-full grid md:grid-cols-3  gap-8 my-8">
-        <twig:Cards:Info class="col-span-2 p-0">
+        <twig:Cards:Info class="md:col-span-2 p-0">
             <img src="{{ asset('images/dalle_exemples_01') }}" class="rounded-lg" alt="">
         </twig:Cards:Info>
         <twig:Cards:Info class="font-black">
@@ -11,8 +11,8 @@
         </twig:Cards:Info>
     </div>
 
-    <twig:Cards:Info class="font-black">
-        <p>{{ site.description }}</p>
+    <twig:Cards:Info class="font-black min-h-screen leading-loose">
+        <p class="leading-loose">{{ site.description }}</p>
     </twig:Cards:Info>
 
 
