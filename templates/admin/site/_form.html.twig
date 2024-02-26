@@ -2,27 +2,27 @@
 <div class="w-full  flex flex-col space-y-8 ">
     <div class="w-full  flex flex-col space-y-8">
         {{ form_label(form.title) }}
-        {{ form_widget(form.title, {'attr': {'class': 'bg-slate-50 px-1 py-2'}}) }}
+        {{ form_widget(form.title, {'attr': {'class': 'focus:bg-clear text-black px-1 py-2'}}) }}
     </div>
     <div class="w-full  flex flex-col space-y-8 ">
         {{ form_label(form.description) }}
-        {{ form_widget(form.description, {'attr': {'class': 'slate-50 px-1 py-2'}}) }}
+        {{ form_widget(form.description, {'attr': {'class': 'focus:bg-clear text-black px-1 py-2'}}) }}
     </div>
     <div class="w-full  flex flex-col space-y-8 ">
-        {{ form_label(form.image) }}
-        {{ form_widget(form.image, {'attr': {'class': 'slate-50 px-1 py-2'}}) }}
+        {{ form_label(form.imageFile) }}
+        {{ form_widget(form.imageFile, {'attr': {'class': 'focus:bg-clear text-black px-1 py-2'}}) }}
     </div>
     <div class="w-full  flex flex-col space-y-8 ">
         {{ form_label(form.repo) }}
-        {{ form_widget(form.repo, {'attr': {'class': 'slate-50 px-1 py-2'}}) }}
+        {{ form_widget(form.repo, {'attr': {'class': 'focus:bg-clear text-black px-1 py-2'}}) }}
     </div>
     <div class="w-full  flex flex-col space-y-8 ">
         {{ form_label(form.categories) }}
-        {{ form_widget(form.categories, {'attr': {'class': 'slate-50'}}) }}
+        {{ form_widget(form.categories, {'attr': {'class': 'bg-slate-50'}}) }}
     </div>
     <div class="w-full  flex flex-col space-y-8 ">
         {{ form_label(form.tags) }}
-        {{ form_widget(form.tags, {'attr': {'class': 'slate-50'}}) }}
+        {{ form_widget(form.tags, {'attr': {'class': 'bg-slate-50'}}) }}
     </div>
     <button class="bg-blue-800 text-blue-50 py-2 px-4">{{ button_label|default('Save') }}</button>
 </div>
