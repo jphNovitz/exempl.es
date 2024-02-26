@@ -3,6 +3,7 @@ title:
   login: "Connexion"
   action: "Action"
   actions: "Actions"
+  index: "Liste des projets classés par catégories"
   site:
     list: "Liste des sites"
     title: "Titre"
