@@ -10,12 +10,16 @@ class Categories
 
     public function __construct(private readonly CategoryRepository $repository)
     {
-        if (!empty($all = $this->repository->findAllWithSites())) $this->categories = $all;
-        else $this->categories = [];
     }
 
-    public function getAll(): array
+    public function getAll(): ?array
     {
-        return $this->categories;
+        return $this->repository->findAllWithSites();
     }
+
+    public function all(): ?array
+    {
+        return $this->getAll();
+    }
+
 }
