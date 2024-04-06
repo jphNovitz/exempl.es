@@ -1,4 +1,6 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="w-full my-8">
+    <twig:Input:Text :row="form.name" label="form.name"/>
+</div>
+<twig:Button:Submit :button_label="button_label"/>
 {{ form_end(form) }}

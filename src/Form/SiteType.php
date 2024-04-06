@@ -27,7 +27,9 @@ class SiteType extends AbstractType
                 'label' => 'form.description',
                 'translation_domain' => 'messages'
             ])
-            ->add('imageFile', VichImageType::class)
+            ->add('imageFile', VichImageType::class, [
+                'required' => false
+            ])
             ->add('repo', TextType::class, [
                 'label' => 'form.repository',
                 'translation_domain' => 'messages'

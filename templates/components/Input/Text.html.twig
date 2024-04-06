@@ -1,0 +1,14 @@
+<div {{ attributes.defaults({ class: 'w-full flex flex-col md:flex-row md:items-end space-y-8' }) }}>
+    {{ form_label(row,null, {
+        'label': label,
+        'label_attr': {'class': 'font-semibold text-xl md:w-1/3'}
+    }) }}
+    {{ form_widget(row, { 'attr':
+        {
+            'class': 'md:w-2/3 focus:bg-clear text-black px-1 py-2'
+        }
+    }) }}
+
+    {{ form_errors(row) }}
+
+</div>
