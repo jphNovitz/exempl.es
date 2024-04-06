@@ -40,9 +40,6 @@ class Site
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $repo = null;
 
-    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'sites')]
-    private Collection $categories;
-
     #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'sites')]
     private Collection $tags;
 
@@ -50,9 +47,11 @@ class Site
     #[ORM\Column(length: 125, unique: true)]
     private ?string $slug = null;
 
+    #[ORM\ManyToOne(inversedBy: 'sites')]
+    private ?Category $category = null;
+
     public function __construct()
     {
-        $this->categories = new ArrayCollection();
         $this->tags = new ArrayCollection();
     }
 
@@ -132,29 +131,6 @@ class Site
         return $this;
     }
 
-    /**
-     * @return Collection<int, Category>
-     */
-    public function getCategories(): Collection
-    {
-        return $this->categories;
-    }
-
-    public function addCategory(Category $category): static
-    {
-        if (!$this->categories->contains($category)) {
-            $this->categories->add($category);
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Category $category): static
-    {
-        $this->categories->removeElement($category);
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Tag>
@@ -188,6 +164,30 @@ class Site
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }

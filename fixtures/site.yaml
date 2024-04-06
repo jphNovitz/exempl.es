@@ -4,5 +4,5 @@ App\Entity\Site:
         description: <sentence()>
         imageName: "demo.jpg"
         repo: <url()>
-        categories: [ '@category*', ]
+        category: '@category*'
         tags: [ '@tag*', '@tag*', '@tag*', '@tag*', '@tag*', '@tag*'  ]

@@ -18,8 +18,9 @@ class Category
     #[ORM\Column(length: 50)]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Site::class, mappedBy: 'categories')]
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Site::class)]
     private Collection $sites;
+
 
     public function __construct()
     {
@@ -55,7 +56,7 @@ class Category
     {
         if (!$this->sites->contains($site)) {
             $this->sites->add($site);
-            $site->addCategory($this);
+            $site->setCategory($this);
         }
 
         return $this;
@@ -64,9 +65,13 @@ class Category
     public function removeSite(Site $site): static
     {
         if ($this->sites->removeElement($site)) {
-            $site->removeCategory($this);
+            // set the owning side to null (unless already changed)
+            if ($site->getCategory() === $this) {
+                $site->setCategory(null);
+            }
         }
 
         return $this;
     }
+
 }
