@@ -18,6 +18,11 @@ button:
   logout: "Déconnexion"
   register: "Je m'enregistre"
   create: "Nouveau"
+  save: "Enregistrer"
+  add: "Ajouter"
+  new: "Ajouter"
+  update: "Modifier"
+  edit: "Modifier"
 form:
   agree: "J'accepte les Conditions"
   password: "Mot de passe"
@@ -27,3 +32,4 @@ form:
   image: "Image"
   repo: "Repo"
   repository: "Repository"
+  name: 'Nom'

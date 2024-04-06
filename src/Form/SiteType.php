@@ -34,7 +34,7 @@ class SiteType extends AbstractType
                 'label' => 'form.repository',
                 'translation_domain' => 'messages'
             ])
-            ->add('categories', EntityType::class, [
+            ->add('category', EntityType::class, [
                 'required' => false,
                 'class' => Category::class,
 //                'query_builder' => function (EntityRepository $er): QueryBuilder {
@@ -42,8 +42,7 @@ class SiteType extends AbstractType
 //                        ->orderBy('c.name', 'ASC');
 //                },
                 'choice_label' => 'name',
-                'expanded' => true,
-                'multiple' => true,
+                'expanded' => false
             ])
             ->add('tags', EntityType::class, [
                 'required' => false,
