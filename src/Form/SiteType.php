@@ -30,6 +30,10 @@ class SiteType extends AbstractType
             ->add('imageFile', VichImageType::class, [
                 'required' => false
             ])
+            ->add('url', TextType::class, [
+                'label' => 'form.url',
+                'translation_domain' => 'messages'
+            ])
             ->add('repo', TextType::class, [
                 'label' => 'form.repository',
                 'translation_domain' => 'messages'

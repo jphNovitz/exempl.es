@@ -13,6 +13,10 @@
         {{ form_widget(form.imageFile, {'attr': {'class': 'focus:bg-clear text-black px-1 py-2'}}) }}
     </div>
     <div class="w-full  flex flex-col space-y-8 ">
+        {{ form_label(form.url) }}
+        {{ form_widget(form.url, {'attr': {'class': 'focus:bg-clear text-black px-1 py-2'}}) }}
+    </div>
+    <div class="w-full  flex flex-col space-y-8 ">
         {{ form_label(form.repo) }}
         {{ form_widget(form.repo, {'attr': {'class': 'focus:bg-clear text-black px-1 py-2'}}) }}
     </div>
