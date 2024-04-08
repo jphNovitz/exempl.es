@@ -32,4 +32,5 @@ form:
   image: "Image"
   repo: "Repo"
   repository: "Repository"
+  url: "Url"
   name: 'Nom'
