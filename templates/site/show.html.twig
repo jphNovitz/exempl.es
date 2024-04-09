@@ -3,17 +3,19 @@
 {% block body %}
 
     <div class="w-full grid md:grid-cols-3  gap-8 my-8">
-        <twig:Cards:Info class="md:col-span-2 p-0">
-            <img src="{{ asset('images/dalle_exemples_01') }}" class="rounded-lg" alt="">
+        <twig:Cards:Info class="md:col-span-2 aspect-video bg-center bg-cover bg-no-repeat p-0"
+                         style="background-image: url('{{ asset('images/sites/'~site.imageName) }}')"
+        >
+            {#            <img src="{{ asset('images/sites/'~site.imageName) }}" class="rounded-lg" alt=""> #}
         </twig:Cards:Info>
-        <twig:Cards:Info class="font-black">
+        <twig:Cards:Info class="flex item-center justify-center capitalize text-center">
             <h1>{{ site.title }}</h1>
         </twig:Cards:Info>
     </div>
 
     <div class="flex flex-col md:flex-row space-y-8 md:space-x-8">
-        <twig:Cards:Info class="w-full md:w-2/3 flex-1 font-black  leading-loose">
-            <p class="leading-loose text-xl">{{ site.description }}</p>
+        <twig:Cards:Info class="w-full md:w-2/3 flex-1  leading-loose">
+            <h2 class="leading-loose text-xl">{{ site.description }}</h2>
         </twig:Cards:Info>
 
 
@@ -37,10 +39,10 @@
                 </a>
 
             </twig:Cards:Info>
-            <twig:Cards:Info class="flex-1 max-h-content font-black">
-                {{ site.category.name }}
+            <twig:Cards:Info class="flex-1 max-h-content">
+                <h3> {{ site.category.name }}</h3>
             </twig:Cards:Info>
-            <twig:Cards:Info class=" max-h-content font-black">
+            <twig:Cards:Info class=" max-h-content">
                 {% for tag in site.tags %}
                     #{{ tag.name }},
                 {% endfor %}
@@ -52,6 +54,6 @@
 {% endblock %}
 
 {% block title %}
-
+{{ site.title }}, exemple de {{ site.category.name }}
 {% endblock %}
 
