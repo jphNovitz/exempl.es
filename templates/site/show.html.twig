@@ -2,25 +2,34 @@
 
 {% block body %}
 
-    <div class="w-full grid md:grid-cols-3  gap-8 my-8">
-        <twig:Cards:Info class="md:col-span-2 aspect-video bg-center bg-cover bg-no-repeat p-0"
+    <div class="w-full grid md:grid-cols-3  gap-4 my-8 mx-auto">
+        {#        <div class="md:col-span-2 grid grid-flow-row auto-rows-max gap-4"> #}
+        <twig:Cards:Info class="md:col-span-2 aspect-video bg-center bg-cover bg-no-repeat p-0  order-1 md:order-0"
                          style="background-image: url('{{ asset('images/sites/'~site.imageName) }}')"
         >
             {#            <img src="{{ asset('images/sites/'~site.imageName) }}" class="rounded-lg" alt=""> #}
         </twig:Cards:Info>
-        <twig:Cards:Info class="flex item-center justify-center capitalize text-center">
-            <h1>{{ site.title }}</h1>
-        </twig:Cards:Info>
-    </div>
 
-    <div class="flex flex-col md:flex-row space-y-8 md:space-x-8">
-        <twig:Cards:Info class="w-full md:w-2/3 flex-1  leading-loose">
-            <h2 class="leading-loose text-xl">{{ site.description }}</h2>
-        </twig:Cards:Info>
+        <div class="{# grid grid-flow-row auto-rows-max gap-4 #} flex flex-col justify-between order-0 md:order-0">
+            <twig:Cards:Info class="flex item-center justify-center capitalize text-center">
+                <h1>{{ site.title }}</h1>
+            </twig:Cards:Info>
+            <twig:Cards:Info class="w-full  flex-1  leading-loose  mt-4  md:hidden">
+                <h2 class="leading-loose text-xl">{{ site.description }}</h2>
+            </twig:Cards:Info>
+            <twig:Cards:Info class=" max-h-content mt-4 md:my-0">
+                <h3> {{ site.category.name }}</h3>
+            </twig:Cards:Info>
+        </div>
 
-
-        <div class="w-full md:w-1/3 flex-col justify-between space-y-8">
-            <twig:Cards:Info class="flex flex-1  flex-row justify-evenly max-h-content p-0">
+        {#        <div class="w-full grid grid-flow-row auto-rows-max gap-4"> #}
+        <div class="flex flex-col justify-between  order-2 md:order-0">
+            <twig:Cards:Info class=" max-h-content">
+                {% for tag in site.tags %}
+                    #{{ tag.name }},
+                {% endfor %}
+            </twig:Cards:Info>
+            <twig:Cards:Info class="flex flex-row justify-evenly max-h-content p-0  mt-4 md:mt-0">
 
                 <a href="{{ site.url }}" title="voir la demo de {{ site.title }}">
                     <twig:Button:Icon>
@@ -39,21 +48,17 @@
                 </a>
 
             </twig:Cards:Info>
-            <twig:Cards:Info class="flex-1 max-h-content">
-                <h3> {{ site.category.name }}</h3>
-            </twig:Cards:Info>
-            <twig:Cards:Info class=" max-h-content">
-                {% for tag in site.tags %}
-                    #{{ tag.name }},
-                {% endfor %}
-            </twig:Cards:Info>
         </div>
+        <twig:Cards:Info class="hidden md:flex md:col-span-2  w-full  flex-1  leading-loose ">
+            <h2 class="leading-loose text-xl">{{ site.description }}</h2>
+        </twig:Cards:Info>
     </div>
+
 
 
 {% endblock %}
 
 {% block title %}
-{{ site.title }}, exemple de {{ site.category.name }}
+    {{ site.title }}, exemple de {{ site.category.name }}
 {% endblock %}
 
