@@ -15,7 +15,7 @@
 {#        {% endif %}#}
     </div>
     <div class="px-4 py-8">
-        <div class="flex space-x-4">
+        <div class="flex space-x-4 mb-4">
             <div class="flex p-1 justify-center intems-center rounded-md bg-primary/30 text-black">
                 {{ category }}
             </div>
@@ -24,8 +24,8 @@
                    title="{{ site.title }} |  {{ category }}">{{ site.title }}</a>
             </h2>
         </div>
-        <p class="font-[14px]">{{ site.description }}</p>
-        <h6 class="pt-2">
+        <p class="text-lg md:text-base">{{ site.description }}</p>
+        <h6 class="pt-2 text-small">
             {% for tag in site.tags %}
                 #{{ tag.name }}
             {% endfor %}
