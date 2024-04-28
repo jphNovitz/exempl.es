@@ -3,36 +3,40 @@
 {% block title %}{% trans %} title.index {% endtrans %}{% endblock %}
 
 {% block body %}
-    <div class="w-full grid md:grid-cols-3  gap-8 my-8">
+    <div class="w-full grid md:grid-cols-3  gap-4 ">
+        {#        <div class="col-span-3 w-full aspect-video grid grid-cols-3 gap-2"> #}
         <twig:Cards:Info class="md:col-span-2 !p-0">
             <img src="{{ asset('images/dalle_exemples_01') }}" class="rounded-lg" alt="">
         </twig:Cards:Info>
-        <twig:Cards:Info class="font-black">
+        {#            <div class="w-full overflow-hidden grid grid-cols-3 md:grid-cols-1 md:grid-rows-3  md:grid-flow-col auto-rows-max gap-2"> #}
+        <twig:Cards:Info class="h-full flex flex-row md:flex-col justify-between items-center">
             <h1>Voici quelques réalisations</h1>
             <p>Anciens travaux d'écoles, essais, POC ou demos. N'hésitez pas à visiter mon <a
                         href="https://github.com/jphNovitz" title="https://github.com/jphNovitz">Github</a></p>
         </twig:Cards:Info>
+
+
+        {#        </div> #}
+
+        {% for category in  categories.getAll() %}
+{#            <div class="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-20 lg:gap-8 my-[20vh] ">#}
+                {% if loop.index == 1 %}
+{#                    <div class="md:col-span-2 lg:col-span-1">#}
+                        <twig:Cards:Title>{% trans %} title.index {% endtrans %}</twig:Cards:Title>
+{#                    </div>#}
+                {% endif %}
+                <div class=" ">
+                    <twig:Cards:Category :name="category.name"/>
+                </div>
+                {% for site in category.sites %}
+                    <div>
+                        <twig:Cards:Site :site="site" :category="category.name"/>
+
+                    </div>
+                {% else %}
+                    no sites
+                {% endfor %}
+{#            </div>#}
+        {% endfor %}
     </div>
-
-    {% for category in  categories.getAll() %}
-        <div class="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-20 lg:gap-8 my-[20vh] ">
-            {% if loop.index == 1 %}
-                <div class="md:col-span-2 lg:col-span-1">
-                    <twig:Cards:Title>{% trans %} title.index {% endtrans %}</twig:Cards:Title>
-                </div>
-            {% endif %}
-            <div class="md:col-span-2 ">
-                <twig:Cards:Category :name="category.name"/>
-            </div>
-            {% for site in category.sites %}
-                <div>
-                    <twig:Cards:Site :site="site" :category="category.name"/>
-
-                </div>
-            {% else %}
-                no sites
-            {% endfor %}
-        </div>
-    {% endfor %}
-    {#    </div> #}
 {% endblock %}
