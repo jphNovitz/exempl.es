@@ -3,9 +3,9 @@
 {% block title %}{% trans %} title.index {% endtrans %}{% endblock %}
 
 {% block body %}
-    <div class="w-full grid grid-cols-1 md:grid-cols-3  gap-24 md:gap-4 ">
+    <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-24 md:gap-4 ">
         {#        <div class="col-span-3 w-full aspect-video grid grid-cols-3 gap-2"> #}
-        <twig:Cards:Info class="md:col-span-2 !p-0">
+        <twig:Cards:Info class="lg:col-span-2 !p-0">
             <img src="{{ asset('images/dalle_exemples_01') }}" class="rounded-lg" alt="">
         </twig:Cards:Info>
         {#            <div class="w-full overflow-hidden grid grid-cols-3 md:grid-cols-1 md:grid-rows-3  md:grid-flow-col auto-rows-max gap-2"> #}
