@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <div class="w-full grid md:grid-cols-3  gap-4 my-8 mx-auto">
+    <div class="w-full grid  md:grid-cols-3  gap-4 my-8 mx-auto">
         {#        <div class="md:col-span-2 grid grid-flow-row auto-rows-max gap-4"> #}
         <twig:Cards:Info class="md:col-span-2 aspect-video bg-center bg-cover bg-no-repeat p-0  order-1 md:order-0"
                          style="background-image: url('{{ asset('images/sites/'~site.imageName) }}')"
@@ -29,7 +29,7 @@
                     #{{ tag.name }},
                 {% endfor %}
             </twig:Cards:Info>
-            <twig:Cards:Info class="flex flex-row justify-evenly max-h-content p-0  mt-4 md:mt-0">
+            <twig:Cards:Info class="flex flex-row justify-evenly max-h-content p-0  mt-4{# md:mt-0#}">
 
                 <a href="{{ site.url }}" title="voir la demo de {{ site.title }}">
                     <twig:Button:Icon>

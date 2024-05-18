@@ -39,7 +39,6 @@
                     <twig:Cards:Site
                             :site="site"
                             :category="category.name"/>
-
                 </div>
             {% else %}
                 no sites
@@ -47,4 +46,23 @@
             {#            </div> #}
         {% endfor %}
     </div>
+    <div class="w-full grid grid-cols-3 gap-4 mt-4">
+        <twig:Cards:Info class="bg-no-repeat bg-cover bg-center"
+                         style="background-image: url({{ asset('images/Screenshot-pixelservices.png') }})">
+            <a href="https://pixelServices.be"
+               class="bg-clear/60 text-black font-black px-8 py-4 rounded-md">
+                PixelServices.be
+            </a>
+        </twig:Cards:Info>
+        <twig:Cards:Info class="bg-no-repeat bg-cover bg-center"
+                         style="background-image: url({{ asset('images/github-bg-opti.webp') }})">
+            <a href="https://github.com/jphNovitz"
+               class="bg-clear/60 text-black font-black px-8 py-4 rounded-md">@jphNovitz</a>
+        </twig:Cards:Info>
+        <twig:Cards:Info class="">
+            <a href="https://jphnovitz.be"
+               class="bg-clear/60 text-black font-black px-8 py-4 rounded-md">jphnovitz.be</a>
+        </twig:Cards:Info>
+    </div>
+    <a href="{{ path('app_sitemap') }}">Sitemap</a>
 {% endblock %}
