@@ -1,30 +1,30 @@
 <article
-        class="w-full max-h-fit bg-white dark:bg-clear text-black border border-black/10 dark:border-clear/10 rounded-lg p-0">
+        class="w-full bg-white dark:bg-clear text-black border border-black/10 dark:border-clear/10 rounded-lg p-0">
     <div {% if site.imageName is not empty %}
         style="background-image: url({{ asset('images/sites/'~site.imageName) }}"
     {% endif %}
             class="w-full aspect-video bg-no-repeat bg-center bg-cover p-4 border-4 rounded-xl border-dark dark:border-clear relative">
-{#        {% if site.repo is not empty %}#}
-{#            <div class="absolute bottom-4 right-4  w-9 p-1 rounded-md">#}
-{#                <a href="{{ site.repo }}">#}
-{#                    <img src="{{ asset('images/logos/github-mark.png') }}"#}
-{#                         alt="Repository de {{ site.title }} sur Github | Laissez une étoilé "#}
-{#                         title="Repository de {{ site.title }} sur Github | Laissez une étoilé ">#}
-{#                </a>#}
-{#            </div>#}
-{#        {% endif %}#}
+        {#        {% if site.repo is not empty %} #}
+        {#            <div class="absolute bottom-4 right-4  w-9 p-1 rounded-md"> #}
+        {#                <a href="{{ site.repo }}"> #}
+        {#                    <img src="{{ asset('images/logos/github-mark.png') }}" #}
+        {#                         alt="Repository de {{ site.title }} sur Github | Laissez une étoilé " #}
+        {#                         title="Repository de {{ site.title }} sur Github | Laissez une étoilé "> #}
+        {#                </a> #}
+        {#            </div> #}
+        {#        {% endif %} #}
     </div>
     <div class="px-4 py-8">
         <div class="flex space-x-4 mb-4">
             <div class="flex p-1 justify-center intems-center rounded-md bg-primary/30 text-black">
                 {{ category }}
             </div>
-            <h2 class="font-black">
+            <h2 class="font-black underline capitalize">
                 <a href="{{ path('app_site_show', {'slug': site.slug}) }}"
                    title="{{ site.title }} |  {{ category }}">{{ site.title }}</a>
             </h2>
         </div>
-        <p class="text-lg md:text-base">{{ site.description }}</p>
+        <p class="text-lg md:text-base truncate">{{ site.description }}</p>
         <h6 class="pt-2 text-small">
             {% for tag in site.tags %}
                 #{{ tag.name }}
