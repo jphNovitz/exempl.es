@@ -4,17 +4,17 @@
 
     <div class="w-full grid  md:grid-cols-3  gap-4 my-8 mx-auto">
         {#        <div class="md:col-span-2 grid grid-flow-row auto-rows-max gap-4"> #}
-        <twig:Cards:Info class="md-h-full md:col-span-2 aspect-video bg-center bg-cover bg-no-repeat p-0  order-1 md:order-0"
+        <twig:Cards:Info id="figure" class="md:h-full md:col-span-2 aspect-video bg-center bg-cover bg-no-repeat p-0  order-1 md:order-0"
                          style="background-image: url('{{ asset('images/sites/'~site.imageName) }}')"
         >
             {#            <img src="{{ asset('images/sites/'~site.imageName) }}" class="rounded-lg" alt=""> #}
         </twig:Cards:Info>
 
-        <div class="{# grid grid-flow-row auto-rows-max gap-4 #} flex flex-col justify-between order-0 md:order-0">
+        <div class="{# grid grid-flow-row auto-rows-max gap-4 #} flex flex-col justify-between order-0 md:order-0 gap-4">
             <twig:Cards:Info class="flex item-center justify-center capitalize text-center">
                 <h1>{{ site.title }}</h1>
             </twig:Cards:Info>
-            <twig:Cards:Info class="w-full  flex-1  leading-loose  mt-4  md:hidden">
+            <twig:Cards:Info class="w-full h-full !aspect-auto  flex-1  leading-loose  md:hidden">
                 <h2 class="leading-loose text-xl">{{ site.description }}</h2>
             </twig:Cards:Info>
             <twig:Cards:Info class=" max-h-content mt-4 md:my-0">

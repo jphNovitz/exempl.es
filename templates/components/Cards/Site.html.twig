@@ -1,19 +1,19 @@
-<article class="w-full bg-white dark:bg-clear text-black border border-black/10 dark:border-clear/10 rounded-lg p-0">
+<article class="w-full bg-white dark:bg-clear text-black border border-4 border-dark dark:border-clear rounded-xl p-0">
     <div {% if site.imageName is not empty %}
-        style="background-image: url({{ asset('images/sites/'~site.imageName) }}"
-    {% endif %}
-            class="w-full aspect-video bg-no-repeat bg-center bg-cover p-4 border-4 rounded-xl border-dark dark:border-clear relative">
+             style="background-image: url({{ asset('images/sites/'~site.imageName) }}"
+         {% endif %}
+            class="w-full aspect-video bg-no-repeat bg-center bg-cover p-4  rounded-t-xl  relative">
 
-        <div class="flex px-4 py-2 justify-center intems-center rounded-md bg-clear/60 text-black font-semibold absolute left-4 bottom-4">
+        <div class="flex px-4 py-2 justify-center intems-center rounded-md bg-clear/80 text-black font-semibold absolute left-4 bottom-4">
             {{ category }}
         </div>
     </div>
 
-    <div class="px-4 py-8">
+    <div class="p-2">
         <div class="flex space-x-4 mb-4">
-{#            <div class="flex p-1 justify-center intems-center rounded-md bg-primary/30 text-black">#}
-{#                {{ category }}#}
-{#            </div>#}
+            {#            <div class="flex p-1 justify-center intems-center rounded-md bg-primary/30 text-black"> #}
+            {#                {{ category }} #}
+            {#            </div> #}
             <h2 class="font-black underline capitalize">
                 <a href="{{ path('app_site_show', {'slug': site.slug}) }}"
                    title="{{ site.title }} |  {{ category }}">{{ site.title }}</a>
