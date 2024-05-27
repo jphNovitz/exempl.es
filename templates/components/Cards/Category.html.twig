@@ -1,6 +1,6 @@
 {% set bg = false %}
 
-<div class="w-full h-full lg:h-full flex flex-col justify-center items-center space-y-8 bg-white dark:bg-clear text-black  p-4 border-4 rounded-xl border-dark dark:border-clear bg-contain bg-center bg-no-repeat"
+<div class="w-full h-full aspect-video md:aspect-auto lg:h-full flex flex-col justify-center items-center space-y-8 bg-white dark:bg-clear text-black  p-4 border-4 rounded-xl border-dark dark:border-clear bg-contain bg-center bg-no-repeat"
         {% if (name == 'Symfony') or (name == 'symfony') %}
             style="background-image: url({{ asset('images/logos/symfony_dynamic_02.svg') }})"
             {% set bg = true %}

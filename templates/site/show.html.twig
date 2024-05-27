@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}{{ site.title}} |[{{ site.category }}]{% endblock %}
+{% block meta_description %}{{ site.description }}{% endblock %}
+{% block og_title %}{{ site.title}} |[{{ site.category }}]{% endblock %}
+{% block og_description %}{{ site.description }}{% endblock %}
+{% block og_image %} {{ asset('images/sites/'~site.imageName)}} {% endblock %}">
 {% block body %}
 
     <div class="w-full grid  md:grid-cols-3  gap-4 my-8 mx-auto">
